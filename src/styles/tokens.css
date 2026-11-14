@@ -1,0 +1,56 @@
+:root {
+  /* COLOR VARIABLES */
+  --color-background: #EAEDE5;
+  --color-surface: #F5F6F1;
+  --color-soft-sage: #C4D0BD;
+  --color-primary-sage: #84977f;
+  --color-deep-forest: #405743;
+  --color-primary-text: #29342D;
+  --color-secondary-text: #657267;
+  --color-border: #D5DCD1;
+
+  /* FONTS */
+  --font-family-headings: "Manrope", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-size-hero: 88px;
+  --font-size-section-heading: 52px;
+  --font-size-project-title: 28px;
+  --font-size-body: 16px;
+  --font-size-supporting: 13px;
+  --font-size-navigation: 14px;
+
+  /* SPACING */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 48px;
+  --spacing-7: 64px;
+  --spacing-8: 96px;
+  --spacing-9: 128px;
+
+  /* LAYOUT */
+  --layout-container-max-width: 1200px;
+  --layout-container-padding-desktop: 48px;
+  --layout-container-padding-tablet: 32px;
+  --layout-container-padding-mobile: 20px;
+  --layout-section-spacing: clamp(72px, calc(5.2vw + 60px), 144px);
+
+}
+
+.dark-theme {
+  --color-background: #222B25;
+  --color-surface: #2B362E;
+  --color-soft-sage: #344238;
+  --color-primary-sage: #A8B99F;
+  --color-deep-forest: #C4D0BD;
+  --color-primary-text: #E7EBE3;
+  --color-secondary-text: #B2BDB2;
+  --color-border: #3D4A40;
+}

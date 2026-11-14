@@ -1,0 +1,65 @@
+body {
+  min-height: 100vh;
+  background: var(--color-background);
+  color: var(--color-primary-text);
+  font-family: var(--font-family-body);
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-headings);
+}
+
+p {
+  font-size: var(--font-size-body);
+  color: var(--color-secondary-text);
+  line-height: 1.5;
+  transition: color 300ms ease;
+}
+
+a:hover {
+  color: var(--color-deep-forest);
+}
+
+a:focus-visible {
+  outline-style: solid;
+  outline-color: var(--color-primary-sage);
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--layout-container-max-width);
+  margin: 0 auto;
+  padding: var(--layout-container-padding-mobile);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: var(--layout-container-padding-tablet);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    padding: var(--layout-container-padding-desktop);
+  }
+}
+
+::selection {
+  background-color: var(--color-soft-sage);
+  color: var(--color-primary-text);
+}
