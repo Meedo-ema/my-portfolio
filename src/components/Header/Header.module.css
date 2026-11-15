@@ -1,0 +1,242 @@
+.header {
+  background: var(--color-soft-sage);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: solid 1px var(--color-border);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, .08);
+  height: 70px;
+}
+
+.headerContent {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.headerContent:global(.container) {
+  padding-block: 0;
+}
+
+/* BRAND */
+.brand {
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-extra-bold);
+  font-size: 24px;
+  color: var(--color-primary-text);
+  transition: color 350ms ease;
+  grid-column: 2;
+  justify-self: center;
+  grid-row: 1;
+  align-self: center;
+}
+
+.brand:hover {
+  color: var(--color-deep-forest);
+}
+
+.brand a {
+  position: relative;
+  display: inline-block;
+}
+
+.brand a::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  background: var(--color-primary-text);
+  bottom: -5px;
+  left: 2px;
+  border-radius: 2px;
+  transform: rotate(-12deg);
+}
+
+/* NAVIGATION STYLES */
+.navigation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  grid-column: 1;
+  justify-self: start;
+  grid-row: 1;
+  align-self: center;
+
+}
+
+.menuToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary-text);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.menuToggle:focus-visible {
+  outline: 2px solid var(--color-primary-sage);
+  outline-offset: 4px;
+}
+
+/* MOBILE MENU */
+.menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 0;
+  z-index: 1001;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  width: 250px;
+  padding: 10px;
+  margin: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, .08);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 350ms ease,
+    transform 350ms ease,
+    visibility 350ms ease;
+}
+
+.menu.menuOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.menu a {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 6px;
+
+  color: var(--color-secondary-text);
+  font-size: var(--font-size-navigation);
+  font-weight: var(--font-weight-medium);
+
+  transition: color 350ms ease,
+    background-color 350ms ease;
+}
+
+.menu a:hover {
+  color: var(--color-deep-forest);
+  background: var(--color-soft-sage);
+}
+
+.menu a:focus-visible {
+  outline: 2px solid var(--color-primary-sage);
+  outline-offset: -2px;
+}
+
+/* DESKTOP AND TABLET */
+
+@media screen and (min-width: 768px) {
+  .brand {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .navigation {
+    position: static;
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .mode {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-5);
+
+    width: auto;
+    padding: 0;
+
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+
+    transition: none;
+  }
+
+  .menu a {
+    display: inline-block;
+    padding: 8px 0;
+  }
+
+  .menu a:hover {
+    background: none;
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+
+  .menu,
+  .menu a {
+    transition: none;
+  }
+}
+
+/* THEMETOGLLE */
+.mode {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3;
+  justify-self: end;
+  grid-row: 1;
+  align-self: center;
+
+}
+
+.modeToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary-text);
+  border-radius: 8px;
+  transition: color 200ms ease,
+    background 200ms ease;
+}
+
+.modeToggle:hover {
+  color: var(--color-deep-forest);
+  background-color: var(--color-soft-sage);
+}
+
+.modeToggle:focus-visible {
+  outline: 2px solid var(--color-primary-sage);
+  outline-offset: 2px;
+}
