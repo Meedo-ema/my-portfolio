@@ -1,0 +1,147 @@
+.hero {
+  width: 100%;
+  padding-block: var(--layout-section-spacing);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  align-items: stretch;
+}
+
+@media screen and (min-width: 768px) {
+  .heroContent {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    column-gap: var(--spacing-7);
+  }
+}
+
+
+.heroText {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.jobTitle {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-supporting);
+  font-weight: var(--font-weight-semi-bold);
+  letter-spacing: 1.5px;
+  color: var(--color-deep-forest);
+}
+
+.mainTopic {
+  font-family: var(--font-family-headings);
+  font-size: clamp(42px, calc(4vw + 27px), var(--font-size-hero));
+  font-weight: var(--font-weight-extra-bold);
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.description {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  max-width: 480px;
+  color: var(--color-secondary-text);
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.heroActions a {
+  border-radius: 8px;
+  font-size: var(--font-size-navigation);
+  font-weight: var(--font-weight-semi-bold);
+  padding: 14px 24px;
+}
+
+.heroActions .primaryButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-deep-forest);
+  color: #fff;
+  transition: background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.heroActions .primaryButton:hover {
+  cursor: pointer;
+  background-color: var(--color-primary-sage);
+  transform: translateY(-2px);
+}
+
+.heroActions .secondaryButton {
+  background-color: transparent;
+  border: 1px solid var(--color-primary-sage);
+  color: var(--color-primary-text);
+  transition: background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.heroActions .secondaryButton:hover {
+  background-color: var(--color-soft-sage);
+  color: var(--color-deep-forest);
+  transform: translateY(-2px);
+
+}
+
+.heroActions .primaryButton:focus-visible,
+.heroActions .secondaryButton:focus-visible {
+  outline: 2px solid var(--color-primary-sage);
+  outline-offset: 3px;
+}
+
+/* VISUALS */
+.heroVisual {
+  width: 100%;
+  min-height: 320px;
+  position: relative;
+}
+
+.shapeCircle {
+  width: 220px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-primary-sage);
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 10px 7px rgba(0, 0, 0, .1);
+}
+
+.shapeRectangle {
+  width: 165px;
+  height: 120px;
+  border-radius: 20px;
+  background-color: var(--color-deep-forest);
+  position: absolute;
+  bottom: 35px;
+  left: calc(50% - 25px);
+  z-index: 2;
+  box-shadow: 0px 10px 7px rgba(0, 0, 0, .08);
+
+}
+
+.shapeOutline {
+  width: 120px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary-sage);
+  position: absolute;
+  top: 15px;
+  left: calc(50% + 35px);
+  z-index: 0;
+}
