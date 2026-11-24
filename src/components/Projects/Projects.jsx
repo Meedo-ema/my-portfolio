@@ -1,13 +1,28 @@
+import { useState } from 'react'
 import { projects } from '../../data/projects'
 import ProjectCard from './ProjectCard'
 import styles from './Projects.module.css'
+import ProjectModal from './ProjectModal'
 
 const Projects = () => {
+  const [projectObject, setProjectObject] = useState(null)
   const featuredProject = projects.find(project => project.featured)
   const remainingProjects = projects.filter(project => !project.featured)
 
+  // FUNCTIONS
+  const handleOpenModal = (project) => {
+    setProjectObject(project)
+  }
+
+  const handleCloseModal = () => {
+    setProjectObject(null)
+  }
+
   return (
     <section id="projects">
+      {projectObject &&
+        <ProjectModal closeModal={handleCloseModal} project={projectObject} />}
+
       <div className={`${styles.content} container`}>
         <h2>Selected Work</h2>
         <p>A selection of projects I've built, exploring ideas through design and code.</p>
@@ -25,6 +40,7 @@ const Projects = () => {
                 techsContainer={styles.featuredTechs}
                 technology={styles.featuredTech}
                 linksContainer={styles.featuredLinksCont}
+                openModal={() => handleOpenModal(featuredProject)}
               /> :
               <div>
                 Coming Soon!
@@ -44,6 +60,7 @@ const Projects = () => {
                 techsContainer={styles.projectTechs}
                 technology={styles.projectTech}
                 linksContainer={styles.projectLinksCont}
+                openModal={() => handleOpenModal(project)}
               />
             ))
             }
